@@ -13,7 +13,10 @@ students = [
     {'first_name': 'Петя'},
 ]
 # ???
+names = [student['first_name'] for student in students]
 
+for name in set(names):
+    print(f'{name}: {names.count(name)}')
 
 # Задание 2
 # Дан список учеников, нужно вывести самое часто повторящееся имя
@@ -26,7 +29,11 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Оля'},
 ]
-# ???
+names = [student['first_name'] for student in students]
+
+for name in set(names):
+    if names.count(name) > 1:
+        print(f'Самое частое имя среди учеников: {name}')
 
 
 # Задание 3
@@ -51,7 +58,26 @@ school_students = [
         {'first_name': 'Саша'},
     ],
 ]
-# ???
+school_students_one = school_students[0]
+names = [student['first_name'] for student in school_students_one]
+
+for name in set(names):
+    if names.count(name) > 1:
+        print(f'Самое частое имя в классе 1: {name}')
+
+school_students_one = school_students[1]
+names = [student['first_name'] for student in school_students_one]
+
+for name in set(names):
+    if names.count(name) > 1:
+        print(f'Самое частое имя в классе 2: {name}')       
+  
+school_students_one = school_students[2]
+names = [student['first_name'] for student in school_students_one]
+
+for name in set(names):
+    if names.count(name) > 1:
+        print(f'Самое частое имя в классе 3: {name}')
 
 
 # Задание 4
@@ -72,7 +98,15 @@ is_male = {
     'Миша': True,
     'Даша': False,
 }
-# ???
+count_male = 0
+count_female = 0
+for students in school:
+    for student in students['students']:
+        if is_male[student['first_name']]:
+            count_male += 1
+        else:
+            count_female += 1
+    print(f'Класс {students["class"]}: девочки {count_female}, мальчики {count_male}')
 
 
 # Задание 5
@@ -91,5 +125,16 @@ is_male = {
     'Олег': True,
     'Миша': True,
 }
-# ???
+count_male = 0
+count_female = 0
+for students in school:
+    if count_male < count_female:
+        print(f'Больше всего мальчиков в классе {students["class"]}')
+    else:
+        print(f'Больше всего девочек в классе {students["class"]}')
+    for student in students['students']:
+        if is_male[student['first_name']]:
+            count_male += 1
+        else:
+            count_female += 1
 
